@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context/ 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <bean id="account"  class="ess.jdbc.ass.Account">
+    	<property name="accId" value="12"></property>
+    	<property name="accName" value="sachdeva acc"></property>
+    	<property name="accBalance" value="500000"></property>
+    </bean>
+    
+    <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">    
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>    
+		<property name="url" value="jdbc:mysql://3.143.194.111:3306/SPRINGJDBC"></property>    
+		<property name="username" value="candidate01"></property>    
+		<property name="password" value="candidate01"></property>    
+	</bean>  
+	
+	<bean id="jdbctemplate" class="org.springframework.jdbc.core.JdbcTemplate">    
+		<property name="dataSource" ref="ds"></property>    
+	</bean>  
+    
+    <bean id="accountdbimpl"  class="ess.jdbc.ass.AccountDBImpl">
+    	<property name="jdbctemplate" ref="jdbctemplate"></property>
+    </bean>
+    
+    
+    
+    
+    
+    
+    
+    </beans>
