@@ -1,7 +1,7 @@
 package ess.spring.boot.service;
 
 import java.util.List;
-
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,14 +10,14 @@ import org.springframework.stereotype.Service;
 import ess.spring.boot.entity.Coin;
 import ess.spring.boot.repository.CoinRepository;
 
-@Service
+@Service()
 public class CoinService {
 	
 	@Autowired
 	CoinRepository coinrepo;
 	
 	public List<Coin> getDataService(){
-		List<Coin> list = coinrepo.findAll();
+		List<Coin> list = coinrepo.findAll(); 
 		return list;
 	}
 	
@@ -27,10 +27,11 @@ public class CoinService {
 	}
 
 	
-	public List<Coin> getBycountry(String country){
-		List<Coin> result=coinrepo.getByCountry(country);
-		return result;
-	}
+	
+	public List<String> getByCountry(String country){
+	   return coinrepo.findAllByCountry(country);
+	 }
+	 
 	
 	public List<Coin> getByyearofminting(String yearofminting){
 		List<Coin> result=coinrepo.getByYearofminting(yearofminting);

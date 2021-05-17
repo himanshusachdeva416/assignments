@@ -21,7 +21,7 @@ public class CoinController {
 	@Autowired
 	CoinService coinservice;
 	
-	@GetMapping(value="/getcoin")
+	@GetMapping(value="/coindata")
 	public List<Coin> getCoinController(){
 		return coinservice.getDataService();
 	}
@@ -32,10 +32,10 @@ public class CoinController {
 		return coin.getDenomination();
 	}
 	
-	@GetMapping(value="/country")
-	public List<Coin> getCountryController(String country) {
-		System.out.println(coinservice.getBycountry(country));
-		return coinservice.getBycountry(country);
+	@GetMapping(value="/getcountry")
+	public List<String> getCountryController(String country) {
+		System.out.println(coinservice.getByCountry(country));
+		return coinservice.getByCountry(country);
 	}
 	
 	@GetMapping(value="/minting")

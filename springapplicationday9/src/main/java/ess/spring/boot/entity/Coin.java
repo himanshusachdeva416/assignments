@@ -1,5 +1,6 @@
 package ess.spring.boot.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -8,13 +9,20 @@ import javax.persistence.Table;
 @Table(name="coindata")
 public class Coin {
 
-	
+	@Column(name="country")
 	String country;
 	
 	@Id
+	@Column(name="denomination")
 	Integer denomination;
+	
+	@Column(name="yearofminting")
 	String yearofminting;
+	
+	@Column(name="currentvalue")
 	Integer currentvalue;
+	
+	@Column(name="acquireddate")
 	String acquireddate;
 	
 	public Coin() {
