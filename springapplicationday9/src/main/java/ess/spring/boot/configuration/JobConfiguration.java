@@ -67,6 +67,7 @@ public class JobConfiguration {
 	{
 		return stepFactory.get("step1").<Coin,Coin>chunk(1).reader(coinItemReader()).writer(coinItemWriter()).build();
 	}
+	
 	@Bean
 	public Job job()
 	{

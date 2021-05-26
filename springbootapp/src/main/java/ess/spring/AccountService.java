@@ -33,6 +33,4 @@ public class AccountService{
 		return accountrepo.findById(accId).get();
 	}
 
-	
-
 }
